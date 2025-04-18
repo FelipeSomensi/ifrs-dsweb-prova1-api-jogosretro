@@ -1,0 +1,14 @@
+@baseURL = http://localhost:3000
+### Listar livros (simples)
+GET {{baseURL}}/jogos
+Content-Type: application/json
+
+### Inserir novo livro
+POST http://localhost:3000/jogos
+Content-Type: application/json
+
+{
+ "nome": "Dragons Dogma",
+ "plataforma": "Mega Drive",
+ "ano_lancamento": 1995
+}

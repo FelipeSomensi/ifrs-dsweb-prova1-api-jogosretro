@@ -1,0 +1,38 @@
+CREATE DATABASE jogosretro_db;
+USE jogosretro_db;
+
+CREATE TABLE tajogo (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(200),
+ plataforma VARCHAR(100),
+ ano_lancamento INT,
+ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO tajogo (nome, plataforma, ano_lancamento) VALUES
+('Red Dead Redemption', 'PS5', 2020),
+('Dark Souls', 'XBOX', 2021);
+
+CREATE TABLE tajogador (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(200),
+nickname VARCHAR(20)
+);
+
+INSERT INTO tajogador (nome, nickname) VALUES
+('Felipe', 'badblood'),
+('Faqui', 'dagonLord');
+
+ CREATE TABLE tapontuacoes (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(200),
+pontuacao INT,
+id_tajogo INT,
+id_tajogador INT,
+criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE tapontuacoes ADD CONSTRAINT fk_tajogo FOREIGN KEY (id_tajogo) REFERENCES tajogo(id);
+ALTER TABLE tapontuacoes ADD CONSTRAINT fk_tajogador FOREIGN KEY (id_tajogador) REFERENCES tajogador(id);
+
+select * from tajogo;
