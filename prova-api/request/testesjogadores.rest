@@ -1,0 +1,22 @@
+@baseURL = http://localhost:3000/jogador
+### 🔹 Listar todos os jogadores
+
+GET {{baseURL}}
+Content-Type: application/json
+
+### 🔹 Buscar um jogo por ID
+GET {{baseURL}}/1
+Content-Type: application/json
+
+### 🔹 Adicionar novo jogador
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+ "nome": "xablau",
+ "nickname": "teste"
+}
+
+### 🔹 Deletar jogador
+DELETE {{baseURL}}/3
+Content-Type: application/json

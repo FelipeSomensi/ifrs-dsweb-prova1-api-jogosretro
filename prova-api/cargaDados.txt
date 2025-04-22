@@ -25,7 +25,6 @@ INSERT INTO tajogador (nome, nickname) VALUES
 
  CREATE TABLE tapontuacoes (
 id INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(200),
 pontuacao INT,
 id_tajogo INT,
 id_tajogador INT,
@@ -35,4 +34,4 @@ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ALTER TABLE tapontuacoes ADD CONSTRAINT fk_tajogo FOREIGN KEY (id_tajogo) REFERENCES tajogo(id);
 ALTER TABLE tapontuacoes ADD CONSTRAINT fk_tajogador FOREIGN KEY (id_tajogador) REFERENCES tajogador(id);
 
-select * from tajogo;
+

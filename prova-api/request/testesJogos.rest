@@ -1,0 +1,23 @@
+@baseURL = http://localhost:3000/jogos
+### 🔹 Listar todos os jogo
+GET {{baseURL}}
+Content-Type: application/json
+
+### 🔹 Buscar um jogo por ID
+GET {{baseURL}}/1
+Content-Type: application/json
+
+### 🔹 Adicionar novo jogo
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+ "nome": "Dragons Dogma",
+ "plataforma": "Mega Drive",
+ "ano_lancamento": 1995
+}
+
+
+### 🔹 Deletar Jogo
+DELETE {{baseURL}}/4
+Content-Type: application/json

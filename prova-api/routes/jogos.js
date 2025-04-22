@@ -1,20 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const connection = require("../config/db");
-router.get("/", (req, res) => {
-    connection.query("SELECT * FROM tajogo", (err, results) => {
-        if (err) return res.status(500).send("Erro ao buscar jogos");
-        res.json(results);
-    });
-});
+const jogoController = require("../controllers/jogoController");
 
-router.post("/", (req, res) => {
-    const { nome, plataforma, ano_lancamento } = req.body;
-    const sql = "INSERT INTO tajogo (nome, plataforma, ano_lancamento) VALUES (?, ?, ?)";
+// Rota GET /jogos - lista todos os jogo
+router.get("/", jogoController.listar);
 
-    connection.query(sql, [nome, plataforma, ano_lancamento], (err) => {
-        if (err) return res.status(500).send("Erro ao inserir jogo");
-        res.status(201).send("Jogo inserido com sucesso");
-    });
-});
+// Rota GET /jogos/:id - busca jogo por ID
+router.get("/:id", jogoController.buscarPorId);
+
+// Rota POST /jogos - adiciona novo jogo
+router.post("/", jogoController.adicionar);
+
+// Rota PUT /jogos/:id - atualiza um jogo
+router.put("/:id", jogoController.atualizar);
+
+// Rota DELETE /jogos/:id - remove um jogo
+router.delete("/:id", jogoController.deletar);
+
 module.exports = router;
