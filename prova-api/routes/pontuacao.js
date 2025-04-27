@@ -8,7 +8,7 @@ router.get("/", pontuacaoController.listar);
 // Rota POST /pontuacao - adiciona novo pontuacao
 router.post("/", pontuacaoController.adicionar);
 
-// Rota GET /pontuacao - adiciona novo pontuacao
+// Rota GET /ranking/:idJogo - lista o ranking de 
 router.get("/ranking/:idJogo", pontuacaoController.ranking);
 
 module.exports = router;

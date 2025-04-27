@@ -27,3 +27,15 @@ exports.atualizar = (id, { nome, plataforma, ano_lancamento },
 exports.deletar = (id, callback) => {
     connection.query("DELETE FROM tajogo WHERE id = ?", [id], callback);
 };
+
+exports.jogosPopulares = (callback) => {
+    const sql = `
+        SELECT j.id, j.nome, j.plataforma, j.ano_lancamento, COUNT(p.id) AS total_pontuacoes
+        FROM tajogo j
+        JOIN tapontuacoes p ON j.id = p.id_tajogo
+        GROUP BY j.id, j.nome, j.plataforma, j.ano_lancamento
+        ORDER BY total_pontuacoes DESC
+        LIMIT 3
+    `;
+    connection.query(sql, callback);
+};

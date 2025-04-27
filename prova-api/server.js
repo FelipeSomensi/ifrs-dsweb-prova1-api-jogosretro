@@ -10,14 +10,14 @@ const jogadorRoutes = require("./routes/jogador");
 const pontuacaoRotes = require("./routes/pontuacao");
 // Middleware do Express para permitir o uso de JSON no corpo das requisições (body-parser embutido)
 app.use(express.json());
-// Usa as rotas de livros com o prefixo /livros
-// Exemplo: GET /livros, POST /livros
+// Usa as rotas de jogos com o prefixo /jogos
+// Exemplo: GET /jogos, POST /jogos
 app.use("/jogos", jogosRoutes);
-// Usa as rotas de editoras com o prefixo /editoras
-// Exemplo: GET /editoras, POST /editoras
+// Usa as rotas de jogador com o prefixo /jogador
+// Exemplo: GET /jogador, POST /jogador
 app.use("/jogador", jogadorRoutes);
-// Usa as rotas de editoras com o prefixo /editoras
-// Exemplo: GET /editoras, POST /editoras
+// Usa as rotas de editoras com o prefixo /pontuacao
+// Exemplo: GET /pontuacao, POST /pontuacao
 app.use("/pontuacao", pontuacaoRotes);
 // Inicia o servidor e o faz escutar na porta 3000
 // Quando estiver rodando, exibe uma mensagem no terminal

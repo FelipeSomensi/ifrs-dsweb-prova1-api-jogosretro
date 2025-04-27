@@ -22,12 +22,16 @@ exports.adicionar = (req, res) => {
     if (!nome || !plataforma || !ano_lancamento) {
         return res.status(400).send("Todos os campos são obrigatórios.");
     }
+
+    if (plataforma != "Super Nintendo" && plataforma != "Mega Drive" && plataforma != "Atari") {
+        return res.status(400).send("Plataforma invalida.");
+    }
+
     jogoModel.inserir(req.body, (err) => {
         if (err) return res.status(500).send("Erro ao adicionar jogo");
         res.status(201).send("Jogo adicionado com sucesso");
     });
 };
-
 
 // Atualiza um jogo existente
 exports.atualizar = (req, res) => {
@@ -35,6 +39,11 @@ exports.atualizar = (req, res) => {
     if (!nome || !plataforma || !ano_lancamento) {
         return res.status(400).send("Todos os campos são obrigatórios.");
     }
+
+    if (plataforma != "Super Nintendo" && plataforma != "Mega Drive" && plataforma != "Atari") {
+        return res.status(400).send("Plataforma invalida.");
+    }
+
     jogoModel.atualizar(req.params.id, req.body, (err, result) => {
         if (err) return res.status(500).send("Erro ao atualizar jogo");
         if (result.affectedRows === 0) return res.status(404).send("Jogo não encontrado");
@@ -48,5 +57,13 @@ exports.deletar = (req, res) => {
         if (err) return res.status(500).send("Erro ao deletar jogo");
         if (result.affectedRows === 0) return res.status(404).send("Jogo não encontrado");
         res.send("jogo deletado com sucesso");
+    });
+};
+
+ // Retorna os 3 jogos mais populares
+exports.jogosPopulares = (req, res) => {
+    jogoModel.jogosPopulares((err, results) => {
+        if (err) return res.status(500).send("Erro ao listar os 3 jogos mais populares");
+        res.json(results);
     });
 };

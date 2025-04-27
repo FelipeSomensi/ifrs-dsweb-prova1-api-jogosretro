@@ -16,7 +16,6 @@ exports.buscarPorId = (req, res) => {
     });
 };
 
-
 // Adiciona um novo jogador após validar os campos
 exports.adicionar = (req, res) => {
     const { nome, nickname } = req.body;
@@ -40,7 +39,7 @@ exports.adicionar = (req, res) => {
     });
 };
 
-// Exclui um jogo pelo ID
+// Exclui um jogador pelo ID
 exports.deletar = (req, res) => {
     jogadorModel.deletar(req.params.id, (err, result) => {
         if (err) return res.status(500).send("Erro ao deletar jogador");

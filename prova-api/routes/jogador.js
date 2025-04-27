@@ -11,7 +11,7 @@ router.get("/:id", jogadorController.buscarPorId);
 // Rota POST /jogador - adiciona novo jogador
 router.post("/", jogadorController.adicionar);
 
-// Rota DELETE /jogos/:id - remove um jogador
+// Rota DELETE /jogador/:id - remove um jogador
 router.delete("/:id", jogadorController.deletar);
 
 module.exports = router;

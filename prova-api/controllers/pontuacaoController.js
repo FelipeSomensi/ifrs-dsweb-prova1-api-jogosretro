@@ -9,6 +9,7 @@ exports.listar = (req, res) => {
     }); // Retorna as pontuacoes como JSON
 };
 
+// Retorna as pontuacoes como JSON
 exports.ranking = (req, res) => {
     pontuacaoModel.ranking(req.params.idJogo, (err, results) => {
         if (err) return res.status(500).send("Erro ao buscar ranking");
@@ -35,6 +36,7 @@ exports.adicionar = (req, res) => {
 
         jogoModel.buscarPorId(idJogo, (err, jogoExistente) => {
             if (err) return res.status(500).send("Erro ao verificar jogo.");
+            
             if (jogoExistente.length === 0) {
                 return res.status(409).send("Jogo não existe");
             }

@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const jogoController = require("../controllers/jogoController");
 
+// Rota GET /jogos/populares - lista os 3 jogos com maiores pontuacoes
+router.get("/populares", jogoController.jogosPopulares);
+
 // Rota GET /jogos - lista todos os jogo
 router.get("/", jogoController.listar);
 

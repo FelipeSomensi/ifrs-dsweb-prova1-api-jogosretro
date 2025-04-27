@@ -21,3 +21,7 @@ Content-Type: application/json
 ### 🔹 Deletar Jogo
 DELETE {{baseURL}}/4
 Content-Type: application/json
+
+### 🔹 aa
+GET {{baseURL}}/populares
+Content-Type: application/json

@@ -13,7 +13,7 @@ exports.buscarPorNickname = (nickname, callback) => {
     const sql = "SELECT * FROM tajogador WHERE nickname = ?";
     connection.query(sql, [nickname], (err, resultados) => {
         if (err) return callback(err);
-        callback(null, resultados[0]); // retorna undefined se não achar
+        callback(null, resultados[0]); 
     });
 };
 
