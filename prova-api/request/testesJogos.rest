@@ -17,7 +17,6 @@ Content-Type: application/json
  "ano_lancamento": 1995
 }
 
-
 ### 🔹 Deletar Jogo
 DELETE {{baseURL}}/4
 Content-Type: application/json

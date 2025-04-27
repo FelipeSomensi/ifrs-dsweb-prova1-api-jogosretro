@@ -10,8 +10,11 @@ CREATE TABLE tajogo (
 );
 
 INSERT INTO tajogo (nome, plataforma, ano_lancamento) VALUES
-('Red Dead Redemption', 'PS5', 2020),
-('Dark Souls', 'XBOX', 2021);
+('Sonic the Hedgehog 2', 'Mega Drive', 1992),
+('Castlevania: Bloodlines', 'Mega Drive', 1994),
+('Pitfall', 'Atari', 1982),
+('Frostbite', 'Atari', 1983),
+('Super Mario Kart', 'Super Nintendo', 1992);
 
 CREATE TABLE tajogador (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,7 +24,9 @@ nickname VARCHAR(20)
 
 INSERT INTO tajogador (nome, nickname) VALUES
 ('Felipe', 'badblood'),
-('Faqui', 'dagonLord');
+('Faqui', 'dagonLord'),
+('Herika', 'akireh'),
+('Carol', 'fenixHumilde');
 
  CREATE TABLE tapontuacoes (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,5 +38,3 @@ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
 ALTER TABLE tapontuacoes ADD CONSTRAINT fk_tajogo FOREIGN KEY (id_tajogo) REFERENCES tajogo(id);
 ALTER TABLE tapontuacoes ADD CONSTRAINT fk_tajogador FOREIGN KEY (id_tajogador) REFERENCES tajogador(id);
-
-
