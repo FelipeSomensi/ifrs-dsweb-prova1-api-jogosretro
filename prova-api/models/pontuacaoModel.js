@@ -5,7 +5,21 @@ exports.buscarTodos = (callback) => {
 };
 
 exports.ranking = (id_tajogo, callback) => {
-    connection.query("SELECT * FROM tapontuacoes WHERE id_tajogo = ? ORDER BY pontuacao DESC  LIMIT 10", [id_tajogo], callback);
+    const sql = `
+        SELECT 
+            j.nickname,
+            p.pontuacao
+        FROM 
+            tapontuacoes p
+        INNER JOIN 
+            tajogador j ON p.id_tajogador = j.id
+        WHERE 
+            p.id_tajogo = ?
+        ORDER BY 
+            p.pontuacao DESC
+        LIMIT 10
+    `;
+    connection.query(sql, [id_tajogo], callback);
 };
 
 exports.inserir = (dados, callback) => {

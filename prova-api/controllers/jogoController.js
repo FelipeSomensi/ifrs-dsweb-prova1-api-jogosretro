@@ -64,6 +64,7 @@ exports.deletar = (req, res) => {
 exports.jogosPopulares = (req, res) => {
     jogoModel.jogosPopulares((err, results) => {
         if (err) return res.status(500).send("Erro ao listar os 3 jogos mais populares");
+        if (results.length === 0) return res.status(404).send("Não existem jogos com pontuações cadastradas");
         res.json(results);
     });
 };

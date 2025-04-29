@@ -8,9 +8,9 @@ POST {{baseURL}}
 Content-Type: application/json
 
 {
- "idJogo": 2,
+ "idJogo": 1,
  "idJogador": 1,
- "pontuacao": 100
+ "pontuacao": 1000
 }
 
 ### 🔹 listar os 10 jogadores com as maiores pontuações para um jogo específico.

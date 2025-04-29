@@ -13,10 +13,10 @@ POST {{baseURL}}
 Content-Type: application/json
 
 {
- "nome": "xablau",
- "nickname": "teste"
+ "nome": "teste",
+ "nickname": "123"
 }
 
 ### 🔹 Deletar jogador
-DELETE {{baseURL}}/3
+DELETE {{baseURL}}/10
 Content-Type: application/json

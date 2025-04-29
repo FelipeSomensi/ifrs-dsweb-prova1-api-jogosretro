@@ -12,15 +12,25 @@ POST {{baseURL}}
 Content-Type: application/json
 
 {
- "nome": "Dragons Dogma",
- "plataforma": "Mega Drive",
+ "nome": "Mortal Kombat II",
+ "plataforma": "Mega 123",
+ "ano_lancamento": 1995
+}
+
+### 🔹 Adicionar novo jogo invalido
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+ "nome": "Mortal Kombat II",
+ "plataforma": "teste",
  "ano_lancamento": 1995
 }
 
 ### 🔹 Deletar Jogo
-DELETE {{baseURL}}/4
+DELETE {{baseURL}}/6
 Content-Type: application/json
 
-### 🔹 aa
+### 🔹 retornar os 3 jogos com maior número de pontuações registradas.
 GET {{baseURL}}/populares
 Content-Type: application/json
